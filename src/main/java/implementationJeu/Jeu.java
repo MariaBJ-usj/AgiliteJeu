@@ -20,7 +20,7 @@ public class Jeu {
     public Partie nouvellePartie(String difficulte, String pseudoJoueur){
         int numPartie = this.parties.size()+1;
         this.parties.add(new Partie(difficulte, pseudoJoueur, numPartie));
-        return this.parties.get(this.parties.size());
+        return this.parties.get(this.parties.size()-1);
     }
 
     public String chargerPartie(int partie){

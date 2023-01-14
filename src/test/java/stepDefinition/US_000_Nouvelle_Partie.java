@@ -15,14 +15,14 @@ public class US_000_Nouvelle_Partie {
         // Write code here that turns the phrase above into concrete actions
         jeu = new Jeu();
     }
-    @When("Le joueur saisi la difficulté (.*) de la nouvelle partie et son surnom (.*)")
+    @When("Le joueur saisi la difficulté {string} de la nouvelle partie et son surnom {string}")
     public void joueur_saisie_la_difficulte_et_son_surnom(String difficulte, String pseudoJoueur) {
         // Write code here that turns the phrase above into concrete actions
         nouvellePartieExpected = jeu.nouvellePartie(difficulte, pseudoJoueur).toString();
     }
-    @Then("La nouvelle partie (.*) est créée")
+    @Then("La nouvelle partie {string} est créée")
     public void nouvelle_partie_est_créée(String nouvellePartieExpected) {
         // Write code here that turns the phrase above into concrete actions
-        assertTrue(this.jeu.getParties().get(this.jeu.getParties().size()).equals(nouvellePartieExpected));
+        assertTrue(this.jeu.getParties().get(this.jeu.getParties().size()-1).equals(nouvellePartieExpected));
     }
 }

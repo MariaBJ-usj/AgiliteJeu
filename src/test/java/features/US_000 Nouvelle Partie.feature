@@ -10,6 +10,6 @@ Feature: US_000 Nouvelle Partie
 
     Examples:
       | partie  | difficulte | pseudoJoueur |
-      | partie1 | facile     | TheBest      |
-      | partie2 | normale    | Killer999    |
-      | partie3 | difficile  | ZamNo1       |
+      | "partie1" | "facile"     | "TheBest"      |
+      | "partie2" | "normale"    | "Killer999"    |
+      | "partie3" | "difficile"  | "ZamNo1"       |
