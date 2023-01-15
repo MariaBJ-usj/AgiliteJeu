@@ -5,15 +5,19 @@ package implementationJeu;
  * **/
 public class Joueur {
     public String getPseudoJoueur() {
+
         return pseudoJoueur;
     }
     public void setPseudoJoueur(String pseudoJoueur) {
+
         this.pseudoJoueur = pseudoJoueur;
     }
     public int getNiveau() {
+
         return niveau;
     }
     public void setNiveau(int niveau) {
+
         this.niveau = niveau;
     }
     private String pseudoJoueur;
