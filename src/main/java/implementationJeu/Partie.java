@@ -25,6 +25,7 @@ public class Partie {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(partie, joueur, difficulte, date_sauvegarde);
     }
 
@@ -33,6 +34,11 @@ public class Partie {
         String stringDate = DateFor.format(date_sauv);
         this.date_sauvegarde = stringDate;
     }
+
+    public void setDate_sauvegarde(String date_sauvegarde) {
+        this.date_sauvegarde = date_sauvegarde;
+    }
+
     public Partie(String choix, String pseudoJoueur, int numero) {
         this.difficulte = choix;
         this.joueur = new Joueur(pseudoJoueur);
@@ -42,7 +48,7 @@ public class Partie {
     }
 
     public String ChargerPartie(){
-        return "implementationJeu.Partie " + this.difficulte + " de "
+        return "Partie " + this.difficulte + " de "
                 + this.joueur.getPseudoJoueur() + " du "
                 + this.date_sauvegarde +" est chargée!";
     }
