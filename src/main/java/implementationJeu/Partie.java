@@ -23,15 +23,6 @@ public class Partie {
         return false;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(partie, joueur, difficulte, date_sauvegarde);
-    }
-
-    public String getDate_sauvegarde() {
-        return date_sauvegarde;
-    }
-
     public void setDate_sauvegarde(Date date_sauv) {
         SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
         String stringDate = DateFor.format(date_sauv);
@@ -43,10 +34,6 @@ public class Partie {
     }
 
     public Partie(){}
-
-    public String getDifficulte() {
-        return difficulte;
-    }
 
     public void setDifficulte(String difficulte) {
         this.difficulte = difficulte;
