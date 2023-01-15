@@ -6,9 +6,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class US_000_Nouvelle_Partie {
     Jeu jeu;
-    String nouvellePartieExpected;
+    Partie nouvellePartieExpected;
+    ArrayList<Partie> expected = new ArrayList<Partie>();
+    static int num = 0;
 
     @Given("Le lancement du jeu par le joueur pour creer une nouvelle partie")
     public void lancement_du_jeu() {
@@ -18,11 +23,16 @@ public class US_000_Nouvelle_Partie {
     @When("Le joueur saisi la difficulté {string} de la nouvelle partie et son surnom {string}")
     public void joueur_saisie_la_difficulte_et_son_surnom(String difficulte, String pseudoJoueur) {
         // Write code here that turns the phrase above into concrete actions
-        nouvellePartieExpected = jeu.nouvellePartie(difficulte, pseudoJoueur).toString();
+        num++;
+        nouvellePartieExpected = new Partie(difficulte, pseudoJoueur, num);
+        this.expected.add(nouvellePartieExpected);
+        jeu.nouvellePartie(difficulte, pseudoJoueur);
     }
     @Then("La nouvelle partie {string} est créée")
-    public void nouvelle_partie_est_créée(String nouvellePartieExpected) {
+    public void nouvelle_partie_est_créée(String nouvPartie) {
         // Write code here that turns the phrase above into concrete actions
-        assertTrue(this.jeu.getParties().get(this.jeu.getParties().size()-1).equals(nouvellePartieExpected));
+        assertTrue(this.nouvellePartieExpected.toString().equals(nouvPartie));
+        assertTrue(this.expected.size()==this.jeu.getParties().size());
+        assertTrue(this.jeu.getParties().get(this.jeu.getParties().size()-1).equals(nouvPartie));
     }
 }

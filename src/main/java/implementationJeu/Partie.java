@@ -10,6 +10,7 @@ public class Partie {
     private String partie;
     private Joueur joueur;
     private String difficulte;
+    private String date_sauvegarde;
 
     @Override
     public String toString() {
@@ -17,18 +18,16 @@ public class Partie {
     }
 
     @Override
-    public boolean equals(Object partieToCompare) {
-        if (this.toString() == ((String)partieToCompare)) return true;
-        if (this.toString() != ((String)partieToCompare)) return false;
-        return this.equals(partieToCompare);
+    public boolean equals(Object o) {
+        if (this.partie.equals((String)o)) return true;
+        return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(partie);
+        return Objects.hash(partie, joueur, difficulte, date_sauvegarde);
     }
 
-    private String date_sauvegarde;
     public void setDate_sauvegarde(Date date_sauv) {
         SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
         String stringDate = DateFor.format(date_sauv);

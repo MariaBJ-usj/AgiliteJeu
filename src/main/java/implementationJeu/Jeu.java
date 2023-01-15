@@ -3,7 +3,8 @@ package implementationJeu;
 import java.util.ArrayList;
 
 public class Jeu {
-    ArrayList<Partie> parties;
+    ArrayList<Partie> parties = new ArrayList<>();;
+    static int num = 0;
 
     public ArrayList<Partie> getParties() {
         return parties;
@@ -14,11 +15,11 @@ public class Jeu {
     }
 
     public Jeu() {
-        parties = new ArrayList<>();
     }
 
     public Partie nouvellePartie(String difficulte, String pseudoJoueur){
-        int numPartie = this.parties.size()+1;
+        num++;
+        int numPartie = this.parties.size()+num;
         this.parties.add(new Partie(difficulte, pseudoJoueur, numPartie));
         return this.parties.get(this.parties.size()-1);
     }
