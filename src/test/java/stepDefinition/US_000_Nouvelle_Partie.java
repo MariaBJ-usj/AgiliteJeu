@@ -1,4 +1,5 @@
 package stepDefinition;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import implementationJeu.Jeu;
 import implementationJeu.Partie;
@@ -27,6 +28,8 @@ public class US_000_Nouvelle_Partie {
         nouvellePartieExpected = new Partie(difficulte, pseudoJoueur, num);
         this.expected.add(nouvellePartieExpected);
         jeu.nouvellePartie(difficulte, pseudoJoueur);
+        assertNotNull(nouvellePartieExpected);
+        assertNotNull(expected);
     }
     @Then("La nouvelle partie {string} est créée")
     public void nouvelle_partie_est_créée(String nouvPartie) {

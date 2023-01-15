@@ -23,20 +23,20 @@ public class Partie {
         return false;
     }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(partie, joueur, difficulte, date_sauvegarde);
-    }
-
     public void setDate_sauvegarde(Date date_sauv) {
         SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
         String stringDate = DateFor.format(date_sauv);
         this.date_sauvegarde = stringDate;
     }
 
-    public void setDate_sauvegarde(String date_sauvegarde) {
-        this.date_sauvegarde = date_sauvegarde;
+    public void setDate_sauvegarde(String date_sauv) {
+        this.date_sauvegarde = date_sauv;
+    }
+
+    public Partie(){}
+
+    public void setDifficulte(String difficulte) {
+        this.difficulte = difficulte;
     }
 
     public Partie(String choix, String pseudoJoueur, int numero) {
@@ -45,6 +45,14 @@ public class Partie {
         Date date = new Date();
         this.setDate_sauvegarde(date);
         this.partie = "partie"+numero;
+    }
+
+    public void setPartie(String partie) {
+        this.partie = partie;
+    }
+
+    public void setJoueur(Joueur joueur) {
+        this.joueur = joueur;
     }
 
     public String ChargerPartie(){

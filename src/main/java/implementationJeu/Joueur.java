@@ -19,6 +19,7 @@ public class Joueur {
     private String pseudoJoueur;
     private int niveau;
 
+    public Joueur(){}
     public Joueur(String pseudoJoueur)
     {
         this.pseudoJoueur = pseudoJoueur;
@@ -29,11 +30,11 @@ public class Joueur {
         String msg = "";
 
         if(this.niveau <= niveauAdversaire) {
-            msg="implementationJeu.Joueur perd.";
+            msg="Joueur perd. ";
         }
         else {
             this.niveau = this.niveau + 1;
-            msg = "implementationJeu.Joueur gagne.";
+            msg = "Joueur gagne. ";
         }
         return msg + "Niveau: "+this.niveau;
     }

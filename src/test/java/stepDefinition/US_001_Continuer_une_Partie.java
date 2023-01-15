@@ -1,34 +1,50 @@
 package stepDefinition;
-
+import implementationJeu.Joueur;
+import implementationJeu.Partie;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 
 public class US_001_Continuer_une_Partie {
-    @Given("Un joueur et une partie sauvegardée partie3")
-    public void un_joueur_et_une_partie_sauvegardée_partie3() {
+    Partie partieExpected;
+    Joueur joueurExpected;
+    String chargementExpected;
+    static int num = 0;
+    @Given("Un joueur et une partie sauvegardée {string}")
+    public void un_joueur_et_une_partie_sauvegardée(String partie) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        num++;
+        partieExpected = new Partie();
+        partieExpected.setPartie(partie);
+        joueurExpected = new Joueur();
+        Assert.assertNotNull(this.partieExpected);
+        Assert.assertNotNull(this.joueurExpected);
     }
-    @Given("La partie sauvegardée contient sa difficulté difficile et sa dernière date de sauvegarde {int}\\/{int}\\/{int}")
-    public void la_partie_sauvegardée_contient_sa_difficulté_difficile_et_sa_dernière_date_de_sauvegarde(Integer int1, Integer int2, Integer int3) {
+    @Given("La partie sauvegardée contient sa difficulté {string} et sa dernière date de sauvegarde {string}")
+    public void la_partie_sauvegardée_contient_sa_difficulté_et_sa_dernière_date_de_sauvegarde(String difficulte, String date) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        partieExpected.setDifficulte(difficulte);
+        partieExpected.setDate_sauvegarde(date);
     }
-    @Given("Le personnage ZamNo1 de la partie sauvegardée possède son niveau actuel {int}")
-    public void le_personnage_zam_no1_de_la_partie_sauvegardée_possède_son_niveau_actuel(Integer int1) {
+    @Given("Le personnage {string} de la partie sauvegardée possède son niveau actuel {int}")
+    public void le_personnage_de_la_partie_sauvegardée_possède_son_niveau_actuel(String pseudoJoueur, int niveau) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        joueurExpected.setPseudoJoueur(pseudoJoueur);
+        joueurExpected.setNiveau(niveau);
+        partieExpected.setJoueur(joueurExpected);
     }
-    @When("Le joueur séléctionne une partie sauvegardée partie3")
-    public void le_joueur_séléctionne_une_partie_sauvegardée_partie3() {
+    @When("Le joueur séléctionne une partie sauvegardée {string}")
+    public void le_joueur_séléctionne_une_partie_sauvegardée(String partie) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        chargementExpected = partieExpected.ChargerPartie();
+        Assert.assertNotNull(chargementExpected);
     }
-    @Then("La partie savegardée sera chargée et retourne son message de chargement Partie difficile de ZamNo1 du {int}\\/{int}\\/{int} est chargée!")
-    public void la_partie_savegardée_sera_chargée_et_retourne_son_message_de_chargement_partie_difficile_de_zam_no1_du_est_chargée(Integer int1, Integer int2, Integer int3) {
+    @Then("La partie savegardée sera chargée et retourne son message de chargement {string}")
+    public void la_partie_savegardée_sera_chargée_et_retourne_son_message_de_chargement(String chargement) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertEquals(chargement, chargementExpected);
     }
 
 }
