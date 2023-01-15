@@ -69,7 +69,7 @@ public class Partie {
     }
 
     public String ChargerPartie(){
-        return "implementationJeu.Partie " + this.difficulte + " de "
+        return "Partie " + this.difficulte + " de "
                 + this.joueur.getPseudoJoueur() + " du "
                 + this.date_sauvegarde +" est chargée!";
     }

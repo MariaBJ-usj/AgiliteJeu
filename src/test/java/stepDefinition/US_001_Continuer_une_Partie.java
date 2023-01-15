@@ -39,6 +39,7 @@ public class US_001_Continuer_une_Partie {
     public void le_joueur_séléctionne_une_partie_sauvegardée(String partie) {
         // Write code here that turns the phrase above into concrete actions
         chargementExpected = partieExpected.ChargerPartie();
+        Assert.assertNotNull(chargementExpected);
     }
     @Then("La partie savegardée sera chargée et retourne son message de chargement {string}")
     public void la_partie_savegardée_sera_chargée_et_retourne_son_message_de_chargement(String chargement) {
