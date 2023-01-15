@@ -19,6 +19,7 @@ public class Joueur {
     private String pseudoJoueur;
     private int niveau;
 
+    public Joueur(){}
     public Joueur(String pseudoJoueur)
     {
         this.pseudoJoueur = pseudoJoueur;
